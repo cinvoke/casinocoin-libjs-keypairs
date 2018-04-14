@@ -120,7 +120,9 @@ module.exports = {
     generateSeed,
     deriveKeypair,
     sign,
+    signMessage,
     verify,
+    verifyMessage,
     deriveAddress,
     deriveNodeAddress
 };
