@@ -82,13 +82,23 @@ function getAlgorithmFromKey(key) {
 }
 
 function sign(messageHex, privateKey) {
-    const algorithm = getAlgorithmFromKey(privateKey);
+    var algorithm = getAlgorithmFromKey(privateKey);
     return select(algorithm).sign(hexToBytes(messageHex), privateKey);
 }
 
+function signMessage(messageHex, privateKey) {
+    var algorithm = getAlgorithmFromKey(privateKey);
+    return select(algorithm).sign(messageHex, privateKey);
+}
+
 function verify(messageHex, signature, publicKey) {
-    const algorithm = getAlgorithmFromKey(publicKey);
+    var algorithm = getAlgorithmFromKey(publicKey);
     return select(algorithm).verify(hexToBytes(messageHex), signature, publicKey);
+}
+
+function verifyMessage(messageHex, signature, publicKey) {
+    var algorithm = getAlgorithmFromKey(publicKey);
+    return select(algorithm).verify(messageHex, signature, publicKey);
 }
 
 function deriveAddressFromBytes(publicKeyBytes) {
